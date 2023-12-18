@@ -1,0 +1,14 @@
+<div class="tw-container tw-mx-auto">
+    <h2 class="tw-text-3xl tw-font-semibold tw-my-4">Выберите своего будущего друга</h2>
+  
+    <div class="tw-grid tw-grid-cols-1 tw-sm:grid-cols-2 tw-md:grid-cols-3 tw-lg:grid-cols-4 tw-gap-4">
+      <div *ngFor="let animal of animals" class="tw-bg-gray-200 tw-p-4 tw-rounded-md tw-shadow-md">
+        <img [src]="animal.imageUrl" alt="{{ animal.name }}" class="tw-w-full tw-h-32 tw-object-cover tw-mb-2 tw-rounded-md">
+        <h3 class="tw-text-lg tw-font-semibold">{{ animal.name }}</h3>
+        <p>{{ animal.description }}</p>
+        <button class="tw-mt-2 tw-bg-teal-500 tw-hover:bg-teal-600 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded">
+          Выбрать
+        </button>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="tw-container tw-mx-auto">
+    <h2 class="tw-text-3xl tw-font-semibold tw-my-4">Новости фонда</h2>
+  
+    <div *ngFor="let newsItem of newsItems" class="tw-mb-8">
+      <h3 class="tw-text-xl tw-font-semibold tw-mb-2">{{ newsItem.title }}</h3>
+      <p class="tw-text-teal-400">{{ newsItem.date | date }}</p>
+      
+      <img *ngIf="newsItem.image" [src]="newsItem.image" class="tw-my-4 tw-w-full tw-rounded-md">
+  
+      <p>{{ newsItem.content }}</p>
+      <hr class="tw-my-4 tw-border-t-2 tw-border-teal-300">
+    </div>
+</div>

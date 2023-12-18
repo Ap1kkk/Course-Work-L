@@ -1,0 +1,35 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "email": "apikmaster@yandex.ru",
+      "password": "123123123",
+      "name": "Ap1kkk",
+      "clickedValue": "10",
+      "id": 2
+    },
+    {
+      "email": "ApikMaster2@yandex.ru",
+      "password": "123123123",
+      "name": "123",
+      "clickedValue": 0,
+      "id": 3
+    }
+  ]
+}
