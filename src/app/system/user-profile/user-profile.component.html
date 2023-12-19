@@ -1,0 +1,75 @@
+<div class="tw-container tw-mx-auto tw-mt-16 tw-p-4 tw-flex tw-flex-col tw-items-center">
+    <h2 class="tw-text-3xl tw-font-bold tw-mb-4">Профиль пользователя</h2>
+
+    <!-- User Details (View Mode) -->
+    <div *ngIf="!editMode" class="tw-mb-8">
+        <p><strong>Имя:</strong> {{ user.name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Общая сумма пожервований:</strong> {{ user.totalDonated}}</p>
+
+        <div class="tw-flex tw-flex-col tw-w-72">
+            <button (click)="logout()" class="tw-bg-teal-500  tw-hover:tw-bg-teal-700 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded-full tw-mt-4">
+                Выйти
+            </button>
+            <button (click)="deleteAccount()" class="tw-bg-teal-500 tw-hover:tw-bg-teal-700 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded-full tw-mt-4">
+                Удалить аккаунт
+            </button>
+            <!-- Edit Profile Button -->
+            <button (click)="toggleEditMode()" class="tw-bg-teal-500 tw-hover:tw-bg-teal-700 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded-full tw-mt-4">
+                Редактировать профиль
+            </button>
+        </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" method="post" *ngIf="editMode">
+        <h3 class="tw-text-xl tw-font-semibold tw-mb-4">Edit Profile</h3>
+
+        <div class="tw-alert tw-alert-{{ message.type }} tw-text-yellow-400" *ngIf="message.text">
+            {{ message.text }}
+        </div>
+
+        <div class="tw-mb-4">
+            <label for="name" class="tw-block tw-text-sm tw-font-medium tw-text-gray-100">Имя</label>
+            <input type="text" id="name" name="name" [placeholder]="user.name" [value]="user.name" formControlName="name" required
+                class="tw-mt-1 tw-p-2 tw-w-full tw-border tw-rounded-md tw-text-gray-800">
+        </div>
+
+        <div class="tw-mb-4" [ngClass]="{'tw-has-error': form.get('email')?.invalid && form.get('email')?.touched}">
+            <label for="email" class="tw-block tw-text-sm tw-font-medium tw-text-gray-100">Email</label>
+            <input type="email" id="email" name="email" [placeholder]="user.email" [value]="user.email" formControlName="email" required
+                class="tw-mt-1 tw-p-2 tw-w-full tw-border tw-rounded-md tw-text-gray-800">
+        </div>
+
+        <div class="tw-mb-4" [ngClass]="{'tw-has-error': form.get('password')?.invalid && form.get('password')?.touched}">
+            <label for="password" class="tw-block tw-text-sm tw-font-medium tw-text-teal-100">Пароль</label>
+            <input type="password" id="password" name="password" [placeholder]="user.password" [value]="user.password" formControlName="password" required
+                class="tw-mt-1 tw-p-2 tw-w-full tw-border tw-rounded-md tw-text-teal-800">
+            <span class="tw-form-help-text tw-text-yellow-400"
+                *ngIf="form.get('password').invalid && form.get('password').touched">
+                <span *ngIf="form.get('password')['errors']['required']">
+                    Пароль не может быть пустым.
+                </span>
+                <span *ngIf="form.get('password')['errors']['minlength'] &&
+                    form.get('password')['errors']['minlength']['requiredLength']">
+                    Пароль должен быть больше {{ form.get("password")["errors"]["minlength"]["requiredLength"] }}
+                    символов. Сейчас {{ form.get("password")["errors"]["minlength"]["actualLength"] }}.
+                </span>
+            </span>
+        </div>
+
+        <div class="tw-mb-4">
+            <label for="totalDonated" class="tw-block tw-text-sm tw-font-medium tw-text-gray-100">Общая сумма пожервований</label>
+            <input type="totalDonated" id="totalDonated" name="totalDonated" [placeholder]="user.totalDonated" [value]="user.totalDonated" formControlName="totalDonated" required
+                class="tw-mt-1 tw-p-2 tw-w-full tw-border tw-rounded-md tw-text-gray-800">
+        </div>
+
+        <div class="tw-flex tw-justify-between">
+            <button type="button" (click)="cancelEdit()" class="tw-bg-teal-500 tw-hover:tw-bg-teal-700 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded-full">
+                Отменить
+            </button>
+            <button type="submit" class="tw-bg-teal-500 tw-hover:tw-bg-blue-700 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded-full" [disabled]="form.invalid">
+                Сохранить изменения
+            </button>
+        </div>
+    </form>
+</div>

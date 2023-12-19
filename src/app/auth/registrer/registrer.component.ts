@@ -4,10 +4,7 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 import { UsersService } from 'src/app/shared/services/users.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/shared/models/user.model';
-
-const EMAIL_PATTERN =
-"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +
-"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+import { EMAIL_PATTERN } from 'src/app/shared/models/email.pattern';
 
 @Component({
   selector: 'app-registrer',
@@ -25,7 +22,6 @@ export class RegistrerComponent implements OnInit {
             'email': new FormControl(null, [Validators.required, Validators.email, Validators.pattern(EMAIL_PATTERN)], this.forbiddenEmails.bind(this)),
             'name': new FormControl(null, [Validators.required]),
             'password': new FormControl(null, [Validators.required, Validators.minLength(8)]),
-            'agree': new FormControl(true, [Validators.requiredTrue])
           });
     }
 

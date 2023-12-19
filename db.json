@@ -1,35 +1,44 @@
 {
-  "posts": [
+  "animals": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
-  "users": [
-    {
-      "email": "apikmaster@yandex.ru",
-      "password": "123123123",
-      "name": "Ap1kkk",
-      "clickedValue": "10",
-      "id": 2
+      "name": "123",
+      "type": "123123",
+      "description": "123123",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC3lWijpm2VABLDqcUNW2xQqE2VndV6MeOx71lYoQBaw&s",
+      "id": 1
     },
     {
-      "email": "ApikMaster2@yandex.ru",
+      "name": "11111",
+      "type": "11111",
+      "description": "11111",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfxJuqydBWenoSAcurGjj4xzwq6WESXRS4f1hYu1WhaA&s",
+      "id": 2
+    }
+  ],
+  "news": [
+    {
+      "title": "аче))",
+      "date": "2023-12-15",
+      "content": "))))",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRCae2mQ2yYPIsBmDaskJK69UYuYKEzyZjG-jOR1AJpA&s",
+      "id": 1
+    },
+    {
+      "title": "123123",
+      "date": "2023-12-15",
+      "content": "123123",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfxJuqydBWenoSAcurGjj4xzwq6WESXRS4f1hYu1WhaA&s",
+      "id": 2
+    }
+  ],
+  "users": [
+    {
+      "email": "ApikMaster@yandex.ru",
       "password": "123123123",
-      "name": "123",
-      "clickedValue": 0,
-      "id": 3
+      "name": "1111",
+      "totalDonated": "1",
+      "isAdmin": false,
+      "id": 1
     }
   ]
 }

@@ -1,14 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Animal } from 'src/app/shared/models/animal.model';
+import { AnimalService } from 'src/app/shared/services/animal.service';
 
 @Component({
   selector: 'app-adoption-page',
   templateUrl: './adopt.component.html',
   styleUrls: ['./adopt.component.css']
 })
-export class AdoptComponent {
-  animals = [
-    { id: 1, name: 'Животное 1', description: 'Описание животного 1', imageUrl: 'animal1.jpg' },
-    { id: 2, name: 'Животное 2', description: 'Описание животного 2', imageUrl: 'animal2.jpg' },
-    // Добавьте больше данных о животных по мере необходимости
-  ];
+export class AdoptComponent implements OnInit{
+    animals!: Animal[];
+
+    constructor(private animalService: AnimalService){
+        
+    }
+    ngOnInit(): void {
+        this.animalService.getAnimals().subscribe((animalsArray)=>{
+            this.animals = animalsArray;
+        })
+    }
 }

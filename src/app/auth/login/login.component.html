@@ -1,26 +1,26 @@
-<div class="flex justify-center content-center pt-16">
-    <div class="bg-teal-900 p-8 rounded-md shadow-md w-96">
-        <h1 class="text-2xl font-semibold mb-4 text-teal-50">Личный кабинет</h1>
-        <div class="alert alert-{{ message.type }} text-teal-100" *ngIf="message.text">
+<div class="tw-flex tw-justify-center tw-content-center tw-pt-16">
+    <div class="tw-bg-teal-900 tw-p-8 tw-rounded-md tw-shadow-md tw-w-96">
+        <h1 class="tw-text-2xl tw-font-semibold tw-mb-4 tw-text-teal-50">Личный кабинет</h1>
+        <div class="tw-alert tw-alert-{{ message.type }} tw-text-teal-100" *ngIf="message.text">
             {{ message.text }}
         </div>
         <form [formGroup]="form" (ngSubmit)="onSubmit()" method="post">
-            <div class="mb-4" [ngClass]="{'has-error': form.get('email')?.invalid && form.get('email')?.touched}">
-                <label for="email" class="block text-sm font-medium text-teal-50">Эл. почта</label>
+            <div class="tw-mb-4" [ngClass]="{'has-error': form.get('email')?.invalid && form.get('email')?.touched}">
+                <label for="email" class="tw-block tw-text-sm tw-font-medium tw-text-teal-50">Эл. почта</label>
                 <input type="text" id="email" name="email" formControlName="email" required
-                    class="mt-1 p-2 w-full bg-teal-600 rounded-md text-teal-50" placeholder="example@example.com">
-                <span class="form-help-text text-teal-100"
+                    class="tw-mt-1 tw-p-2 tw-w-full tw-bg-teal-600 tw-rounded-md tw-text-teal-50" placeholder="example@example.com">
+                <span class="tw-form-help-text tw-text-teal-100"
                     *ngIf="form.get('email').invalid && form.get('email').touched">
                     <span *ngIf="form.get('email')['errors']['required']">Поле не может быть пустым. </span>
                     <span *ngIf="form.get('email')['errors']['email']">Введите корректный email.</span>
                 </span>
             </div>
 
-            <div class="mb-6" [ngClass]="{'has-error': form.get('password')?.invalid && form.get('password')?.touched}">
-                <label for="password" class="block text-sm font-medium text-teal-50">Пароль</label>
+            <div class="tw-mb-6" [ngClass]="{'has-error': form.get('password')?.invalid && form.get('password')?.touched}">
+                <label for="password" class="tw-block tw-text-sm tw-font-medium tw-text-teal-50">Пароль</label>
                 <input type="password" id="password" name="password" formControlName="password" required
-                    class="mt-1 p-2 w-full bg-teal-600 rounded-md text-teal-50" placeholder="********">
-                <span class="form-help-text text-teal-100"
+                    class="tw-mt-1 tw-p-2 tw-w-full tw-bg-teal-600 tw-rounded-md tw-text-teal-50" placeholder="********">
+                <span class="tw-form-help-text tw-text-teal-100"
                     *ngIf="form.get('password').invalid && form.get('password').touched">
                     <span *ngIf="form.get('password')['errors']['required']">Поле не может быть пустым. </span>
                     <span *ngIf="form.get('password')['errors']['minlength']">
@@ -29,18 +29,18 @@
                 </span>
             </div>
 
-            <div class="mb-6">
+            <div class="tw-mb-6">
                 <button type="submit"
-                    class="w-full bg-teal-300 hover:bg-teal-400 text-teal-950 font-bold py-2 px-4 
-                    rounded focus:outline-none focus:shadow-outline-teal active:bg-teal-500"
+                    class="tw-w-full tw-bg-teal-300 hover:tw-bg-teal-400 tw-text-teal-950 tw-font-bold tw-py-2 tw-px-4 
+                    tw-rounded tw-focus:outline-none tw-focus:shadow-outline-teal tw-active:bg-teal-500"
                     [disabled]="form.invalid">
                     Войти
                 </button>
             </div>
 
-            <div class="text-center">
-                <p class="text-teal-200">Ещё нет аккаунта?</p>
-                <a [routerLink]="'/register'" class="text-teal-50 hover:text-teal-400 font-medium">Зарегистрироваться</a>
+            <div class="tw-text-center">
+                <p class="tw-text-teal-200">Ещё нет аккаунта?</p>
+                <a [routerLink]="'/register'" class="tw-text-teal-50 hover:tw-text-teal-400 tw-font-medium">Зарегистрироваться</a>
             </div>
         </form>
     </div>

@@ -3,7 +3,7 @@ export class User {
       public email: string,
       public password: string,
       public name: string,
-      public clickedValue: number,
+      public totalDonated: number,
       public isAdmin: boolean,
       public id?: number,
     ) {}

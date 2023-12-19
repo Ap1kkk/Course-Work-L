@@ -1,4 +1,3 @@
-// admin.guard.ts
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanActivate } from '@angular/router';
 import { AuthService } from '../services/auth.service';
@@ -16,7 +15,7 @@ export class AuthenticatedGuard implements CanActivate {
         console.log("logged in")
         return true;
     }
-    console.log("not logged in")
+    alert("not logged in")
     this.router.navigate(['/login']);
     return false;
   }

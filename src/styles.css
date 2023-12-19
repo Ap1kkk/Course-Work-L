@@ -1,11 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import "~bootstrap/dist/css/bootstrap.min.css";
 body {
     font-family: Arial, sans-serif;
-    background-color: #2d2d2d;
-    color: #fff;
+    background-color: #2d2d2d !important;
+    color: #fff!important;
     margin: 0;
     padding: 0;
     /* display: flex; */
@@ -13,6 +13,9 @@ body {
     align-items: center; */
     height: 100vh;
   }
+a {
+    text-decoration: none !important;
+}
 button[disabled] {
 
   background-color: rgba(148, 148, 148, 0.6) !important;

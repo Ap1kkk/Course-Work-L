@@ -5,7 +5,7 @@
       <h3 class="tw-text-xl tw-font-semibold tw-mb-2">{{ newsItem.title }}</h3>
       <p class="tw-text-teal-400">{{ newsItem.date | date }}</p>
       
-      <img *ngIf="newsItem.image" [src]="newsItem.image" class="tw-my-4 tw-w-full tw-rounded-md">
+      <img *ngIf="newsItem.image" [src]="newsItem.image" class="tw-my-4 tw-max-w-screen-sm tw-rounded-md">
   
       <p>{{ newsItem.content }}</p>
       <hr class="tw-my-4 tw-border-t-2 tw-border-teal-300">

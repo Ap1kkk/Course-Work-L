@@ -36,6 +36,7 @@ export class UsersService {
     }
     putUser(oldEmail:string, user:User)
     {
+        console.log("put", user)
         return this.http.put(`http://localhost:3000/users/${user.id}`, user)
         .pipe(map((user: any) => user[0] ? user[0] : undefined))
         .subscribe(() => this.emitUserChangedEvent(user));

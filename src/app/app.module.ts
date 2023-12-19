@@ -13,6 +13,8 @@ import { SystemComponent } from './system/system.component';
 import { SharedModule } from "./shared/shared.module";
 import { SystemModule } from './system/system.module';
 import { AdminGuard } from './shared/guards/admin.guard';
+import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({
@@ -29,8 +31,10 @@ import { AdminGuard } from './shared/guards/admin.guard';
         ReactiveFormsModule,
         AppRoutingModule,
         HttpClientModule,
+        SharedModule,
         SystemModule,
-        SharedModule
+        AdminModule,
+
     ]
 })
 export class AppModule { }
