@@ -1,0 +1,49 @@
+<!-- animal-form.component.html -->
+<div class="tw-flex tw-flex-col tw-items-center tw-p-8">
+    <h3 class="">Добавить животное</h3>
+    <form [formGroup]="animalForm" (ngSubmit)="onSubmit()" class="tw-bg-teal-800 tw-p-4 tw-rounded tw-shadow-md">
+        <div class="tw-mb-4 tw-w-72" [ngClass]="{'tw-has-error': animalForm.get('name').invalid && animalForm.get('name').touched}">
+            <label for="name" class="tw-block tw-text-sm tw-font-medium">Имя</label>
+            <input type="text" id="name" name="name" formControlName="name"
+                class="tw-mt-1 tw-p-2 tw-w-full tw-rounded-md tw-text-teal-900">
+            <span *ngIf="animalForm.get('name').invalid && animalForm.get('name').touched">
+                <span *ngIf="animalForm.get('name').errors?.required" class="tw-text-red-500">Поле не может быть пустым.</span>
+            </span>
+        </div>
+      
+        <div class="tw-mb-4 tw-w-72" [ngClass]="{'tw-has-error': animalForm.get('type').invalid && animalForm.get('type').touched}">
+            <label for="type" class="tw-block tw-text-sm tw-font-medium">Тип</label>
+            <input type="text" id="type" name="type" formControlName="type"
+                class="tw-mt-1 tw-p-2 tw-w-full tw-rounded-md tw-text-teal-900">
+            <span *ngIf="animalForm.get('type').invalid && animalForm.get('type').touched">
+                <span *ngIf="animalForm.get('type').errors?.required" class="tw-text-red-500">Поле не может быть пустым.</span>
+            </span>
+        </div>
+      
+        <div class="tw-mb-4 tw-w-72" [ngClass]="{'tw-has-error': animalForm.get('description').invalid && animalForm.get('description').touched}">
+            <label for="description" class="tw-block tw-text-sm tw-font-medium">Описание</label>
+            <textarea id="description" name="description" formControlName="description"
+                class="tw-mt-1 tw-p-2 tw-w-full tw-rounded-md tw-text-teal-900"></textarea>
+            <span *ngIf="animalForm.get('description').invalid && animalForm.get('description').touched">
+                <span *ngIf="animalForm.get('description').errors?.required" class="tw-text-red-500">Поле не может быть пустым.</span>
+            </span>
+        </div>
+      
+        <div class="tw-mb-4 tw-w-72" [ngClass]="{'tw-has-error': animalForm.get('image').invalid && animalForm.get('image').touched}">
+            <label for="image" class="tw-block tw-text-sm tw-font-medium">Ссылка на изображение</label>
+            <input type="text" id="image" name="image" formControlName="image"
+                class="tw-mt-1 tw-p-2 tw-w-full tw-rounded-md tw-text-teal-900">
+            <span *ngIf="animalForm.get('image').invalid && animalForm.get('image').touched">
+                <span *ngIf="animalForm.get('image').errors?.required" class="tw-text-red-500">Поле не может быть пустым.</span>
+            </span>
+        </div>
+      
+        <div class="tw-mb-6 tw-w-72">
+            <button type="submit" [disabled]="animalForm.invalid"
+                class="tw-w-full tw-bg-teal-300 tw-hover:bg-teal-400 tw-text-teal-950 tw-font-bold tw-py-2 tw-px-4 
+                tw-rounded tw-focus:outline-none tw-focus:shadow-outline-teal tw-active:bg-teal-500">
+                Добавить животное
+            </button>
+        </div>
+    </form>
+</div>

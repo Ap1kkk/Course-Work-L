@@ -1,0 +1,30 @@
+<div class="tw-container tw-mx-auto">
+    <h2 class="tw-text-3xl tw-font-semibold tw-my-4">Новости фонда</h2>
+  
+    <div *ngFor="let newsItem of newsItems" class="tw-mb-8">
+      <h3 class="tw-text-xl tw-font-semibold tw-mb-2">{{ newsItem.title }}</h3>
+      <p class="tw-text-teal-400">{{ newsItem.date | date }}</p>
+      
+      <img *ngIf="newsItem.image" [src]="newsItem.image" class="tw-my-4 tw-max-w-screen-sm tw-rounded-md">
+  
+      <p>{{ newsItem.content }}</p>
+      
+      <!-- Add ID, Edit, and Delete buttons -->
+      <div class="tw-flex tw-space-x-4 tw-mt-4">
+        <p class="tw-text-teal-600">ID: {{ newsItem.id }}</p>
+        
+        <!-- Use optional chaining operator here -->
+        <!-- <button class="tw-bg-teal-300 tw-hover:bg-teal-400 tw-text-teal-950 tw-font-bold tw-py-2 tw-px-4 tw-rounded tw-focus:outline-none tw-focus:shadow-outline-teal tw-active:bg-teal-500"
+                (click)="editNews(newsItem?.id)">
+          Редактировать
+        </button> -->
+        
+        <button class="tw-bg-red-500 tw-hover:bg-red-600 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded tw-focus:outline-none tw-focus:shadow-outline-red tw-active:bg-red-700" 
+                (click)="deleteNews(newsItem?.id)">
+          Удалить
+        </button>
+      </div>
+      
+      <hr class="tw-my-4 tw-border-t-2 tw-border-teal-300">
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<!-- news-form.component.html -->
+<div class="tw-flex tw-flex-col tw-items-center tw-p-8">
+    <h3 class="">Добавить новость</h3>
+    <form [formGroup]="newsForm" (ngSubmit)="onSubmit()" class="tw-bg-teal-800 tw-p-4 tw-rounded tw-shadow-md">
+        <div class="tw-mb-4 tw-w-72" [ngClass]="{'tw-has-error': newsForm.get('title').invalid && newsForm.get('title').touched}">
+          <label for="title" class="tw-block tw-text-sm tw-font-medium">Заголовок</label>
+          <input type="text" id="title" name="title" formControlName="title"
+                 class="tw-mt-1 tw-p-2 tw-w-full tw-rounded-md tw-text-teal-900">
+          <span *ngIf="newsForm.get('title').invalid && newsForm.get('title').touched">
+            <span *ngIf="newsForm.get('title').errors?.required" class="tw-text-red-500">Поле не может быть пустым.</span>
+          </span>
+        </div>
+      
+        <div class="tw-mb-4 tw-w-72" [ngClass]="{'tw-has-error': newsForm.get('date').invalid && newsForm.get('date').touched}">
+          <label for="date" class="tw-block tw-text-sm tw-font-medium">Дата</label>
+          <input type="date" id="date" name="date" formControlName="date"
+                 class="tw-mt-1 tw-p-2 tw-w-full tw-rounded-md tw-text-teal-900">
+          <span *ngIf="newsForm.get('date').invalid && newsForm.get('date').touched">
+            <span *ngIf="newsForm.get('date').errors?.required" class="tw-text-red-500">Поле не может быть пустым.</span>
+          </span>
+        </div>
+      
+        <div class="tw-mb-4 tw-w-72" [ngClass]="{'tw-has-error': newsForm.get('content').invalid && newsForm.get('content').touched}">
+          <label for="content" class="tw-block tw-text-sm tw-font-medium">Содержание</label>
+          <textarea id="content" name="content" formControlName="content"
+                    class="tw-mt-1 tw-p-2 tw-w-full tw-rounded-md tw-text-teal-900"></textarea>
+          <span *ngIf="newsForm.get('content').invalid && newsForm.get('content').touched">
+            <span *ngIf="newsForm.get('content').errors?.required" class="tw-text-red-500">Поле не может быть пустым.</span>
+          </span>
+        </div>
+      
+        <div class="tw-mb-4 tw-w-72" [ngClass]="{'tw-has-error': newsForm.get('image').invalid && newsForm.get('image').touched}">
+          <label for="image" class="tw-block tw-text-sm tw-font-medium">Ссылка на изображение</label>
+          <input type="text" id="image" name="image" formControlName="image"
+                 class="tw-mt-1 tw-p-2 tw-w-full tw-rounded-md tw-text-teal-900">
+          <span *ngIf="newsForm.get('image').invalid && newsForm.get('image').touched">
+            <span *ngIf="newsForm.get('image').errors?.required" class="tw-text-red-500">Поле не может быть пустым.</span>
+          </span>
+        </div>
+      
+        <div class="tw-mb-6 tw-w-72">
+          <button type="submit" [disabled]="newsForm.invalid"
+                  class="tw-w-full tw-bg-teal-300 tw-hover:bg-teal-400 tw-text-teal-950 tw-font-bold tw-py-2 tw-px-4 
+                  tw-rounded tw-focus:outline-none tw-focus:shadow-outline-teal tw-active:bg-teal-500">
+            Добавить новость
+          </button>
+        </div>
+    </form>
+</div>
