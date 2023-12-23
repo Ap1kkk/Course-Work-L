@@ -24,7 +24,7 @@ export class UserProfileComponent {
 
     constructor(private authService: AuthService, private usersService: UsersService, private router: Router)
     {
-        this.user = this.authService.CurrentUser;
+        this.user = this.authService.currentUser;
 
         this.subscription = authService.getUserChangedEmitter()
         .subscribe(user => this.user = user)
@@ -34,7 +34,10 @@ export class UserProfileComponent {
         this.subscription.unsubscribe();
     }
     ngOnInit(): void {
-        this.user = this.authService.CurrentUser;
+        this.authService.updateCurrentUser().subscribe((user:User)=>{
+            this.user = user;
+        })
+
         this.message = new Message('danger', '');
 
         this.form = new FormGroup({
@@ -131,7 +134,7 @@ export class UserProfileComponent {
     private changeUser(newUser: User)
     {
         const formData = this.form.value; 
-        this.usersService.putUser(this.user.email, newUser);
+        this.usersService.updateUser(newUser);
     }
 
     private showMessage(message:Message){

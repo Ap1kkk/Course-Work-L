@@ -9,8 +9,8 @@ import { AllNewsComponent } from "./all-news/all-news.component";
 
 
 const routes: Routes = [
-    // {path: 'admin', component: AdminComponent, canActivate: [AdminGuard], children: [
     {path: 'admin', component: AdminComponent, children: [
+    // {path: 'admin', component: AdminComponent, children: [
         {path: 'add-news',component: AddNewsComponent},
         {path: 'all-news',component: AllNewsComponent},
         {path: 'add-animal',component: AddAnimalComponent},

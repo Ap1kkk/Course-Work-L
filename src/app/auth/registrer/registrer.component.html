@@ -14,7 +14,7 @@
             </div>
 
             <div class="tw-mb-6" [ngClass]="{'has-error': form.get('name')?.invalid && form.get('name')?.touched}">
-                <label for="name" class="tw-block tw-text-sm tw-font-medium tw-text-teal-100">Name</label>
+                <label for="name" class="tw-block tw-text-sm tw-font-medium tw-text-teal-100">Имя пользователя</label>
                 <input type="name" id="name" name="name" placeholder="Name" formControlName="name"
                     class="tw-mt-1 tw-p-2 tw-w-full tw-bg-teal-600 tw-rounded-md tw-text-teal-50">
                 <span *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
@@ -23,7 +23,7 @@
             </div>
 
             <div class="tw-mb-6" [ngClass]="{'has-error': form.get('password')?.invalid && form.get('password')?.touched}">
-                <label for="password" class="tw-block tw-text-sm tw-font-medium tw-text-teal-100">Password</label>
+                <label for="password" class="tw-block tw-text-sm tw-font-medium tw-text-teal-100">Пароль</label>
                 <input type="password" id="password" name="password" placeholder="Password" formControlName="password"
                     class="tw-mt-1 tw-p-2 tw-w-full tw-bg-teal-600 tw-rounded-md tw-text-teal-50">
                 <span *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
@@ -39,13 +39,13 @@
                 <button type="submit" [disabled]="form.invalid"
                     class="tw-w-full tw-bg-teal-300 hover:tw-bg-teal-400 tw-text-teal-950 tw-font-bold tw-py-2 tw-px-4 
                     tw-rounded tw-focus:outline-none tw-focus:shadow-outline-teal tw-active:bg-teal-500">
-                    Register
+                    Зарегистрироваться
                 </button>
             </div>
 
             <div class="tw-text-center">
-                <p class="tw-text-teal-200">Already have an account?</p>
-                <a [routerLink]="'/login'" class="tw-text-teal-50 hover:tw-text-teal-400 tw-font-medium">Log In</a>
+                <p class="tw-text-teal-200">Уже есть аккаунт?</p>
+                <a [routerLink]="'/login'" class="tw-text-teal-50 hover:tw-text-teal-400 tw-font-medium">Войти</a>
             </div>
         </form>
     </div>

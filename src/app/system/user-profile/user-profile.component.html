@@ -1,4 +1,4 @@
-<div class="tw-container tw-mx-auto tw-mt-16 tw-p-4 tw-flex tw-flex-col tw-items-center">
+<div class="tw-container tw-mx-auto tw-mt-4 tw-p-4 tw-flex tw-flex-col tw-items-center">
     <h2 class="tw-text-3xl tw-font-bold tw-mb-4">Профиль пользователя</h2>
 
     <!-- User Details (View Mode) -->
@@ -72,4 +72,16 @@
             </button>
         </div>
     </form>
+
+    <h3 class="tw-text-1xl tw-font-semibold tw-my-4 tw-text-white">Ваши друзья</h3>
+    <hr class="tw-my-4 tw-border-t-2 tw-w-full tw-border-teal-300">
+
+    <div class="tw-flex tw-flex-wrap tw-justify-center tw-max-w-full">
+        <div *ngFor="let animal of user.adoptedAnimals" class="tw-bg-teal-500 tw-p-4 tw-m-4 tw-rounded-md tw-shadow-md tw-min-w-fit tw-max-w-3xl tw-mb-4 sm:w-1/2 md:w-1/3 lg:w-1/4">
+            <img [src]="animal.image" alt="{{ animal.name }}" class="tw-object-cover tw-mb-2 tw-rounded-md">
+            <h3 class="tw-text-lg tw-font-semibold">{{ animal.name }}</h3>
+            <p>{{ animal.type }}</p>
+            <p>{{ animal.description }}</p>
+        </div>
+    </div>
 </div>

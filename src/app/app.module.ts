@@ -15,6 +15,7 @@ import { SystemModule } from './system/system.module';
 import { AdminGuard } from './shared/guards/admin.guard';
 import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminModule } from './admin/admin.module';
+import { DonateService } from './shared/services/donate.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { AdminModule } from './admin/admin.module';
         AppComponent,
         SystemComponent,
     ],
-    providers: [UsersService, AuthService],
+    providers: [UsersService, AuthService, DonateService],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,

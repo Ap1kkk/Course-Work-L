@@ -1,18 +1,18 @@
 {
   "animals": [
     {
-      "name": "123",
-      "type": "123123",
-      "description": "123123",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC3lWijpm2VABLDqcUNW2xQqE2VndV6MeOx71lYoQBaw&s",
-      "id": 1
-    },
-    {
-      "name": "11111",
-      "type": "11111",
-      "description": "11111",
+      "name": "222",
+      "type": "222",
+      "description": "222",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfxJuqydBWenoSAcurGjj4xzwq6WESXRS4f1hYu1WhaA&s",
       "id": 2
+    },
+    {
+      "name": "333",
+      "type": "333",
+      "description": "333",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfxJuqydBWenoSAcurGjj4xzwq6WESXRS4f1hYu1WhaA&s",
+      "id": 3
     }
   ],
   "news": [
@@ -22,22 +22,31 @@
       "content": "))))",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRCae2mQ2yYPIsBmDaskJK69UYuYKEzyZjG-jOR1AJpA&s",
       "id": 1
-    },
-    {
-      "title": "123123",
-      "date": "2023-12-15",
-      "content": "123123",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfxJuqydBWenoSAcurGjj4xzwq6WESXRS4f1hYu1WhaA&s",
-      "id": 2
     }
   ],
   "users": [
     {
-      "email": "ApikMaster@yandex.ru",
+      "email": "ApikMaster2@yandex.ru",
       "password": "123123123",
       "name": "1111",
-      "totalDonated": "1",
+      "totalDonated": 10,
       "isAdmin": false,
+      "adoptedAnimals": [
+        {
+          "name": "222",
+          "type": "222",
+          "description": "222",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfxJuqydBWenoSAcurGjj4xzwq6WESXRS4f1hYu1WhaA&s",
+          "id": 2
+        },
+        {
+          "name": "333",
+          "type": "333",
+          "description": "333",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfxJuqydBWenoSAcurGjj4xzwq6WESXRS4f1hYu1WhaA&s",
+          "id": 3
+        }
+      ],
       "id": 1
     }
   ]

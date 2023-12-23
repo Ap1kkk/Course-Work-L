@@ -34,9 +34,8 @@ export class UsersService {
         return this.http.delete(`http://localhost:3000/users/${user.id}`)
         .subscribe(() => console.log("user deleted"));
     }
-    putUser(oldEmail:string, user:User)
+    updateUser(user:User)
     {
-        console.log("put", user)
         return this.http.put(`http://localhost:3000/users/${user.id}`, user)
         .pipe(map((user: any) => user[0] ? user[0] : undefined))
         .subscribe(() => this.emitUserChangedEvent(user));

@@ -1,4 +1,4 @@
-<div class="tw-container tw-mx-auto">
+<div class="tw-container tw-mx-auto tw-max-w-2xl">
     <h2 class="tw-text-3xl tw-font-semibold tw-my-4">Поддержите наш фонд</h2>
   
     <p>
@@ -11,12 +11,7 @@
         <label for="amount" class="tw-block tw-text-sm tw-font-medium">Сумма пожертвования</label>
         <input type="number" id="amount" name="amount" ngModel class="tw-mt-1 tw-p-2 tw-w-full tw-bg-gray-200 tw-rounded-md tw-text-teal-700" placeholder="Введите сумму" required formControlName="amount">
       </div>
-  
-      <div class="tw-mb-6">
-        <label for="message" class="tw-block tw-text-sm tw-font-medium">Сообщение (необязательно)</label>
-        <textarea id="message" name="message" ngModel class="tw-mt-1 tw-p-2 tw-w-full tw-bg-gray-200 tw-rounded-md tw-text-teal-700" placeholder="Оставьте сообщение" formControlName="message"></textarea>
-      </div>
-  
+
       <button type="submit" [disabled]="!donationForm.valid" class="tw-w-full tw-bg-teal-500 tw-hover:bg-teal-600 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded">
         Пожертвовать
       </button>

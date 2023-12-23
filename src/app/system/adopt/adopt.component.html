@@ -1,16 +1,33 @@
-<div class="tw-container tw-mx-auto ">
+<!-- Ваш компонент с животными -->
+
+<div class="tw-container tw-mx-auto">
     <h2 class="tw-text-3xl tw-font-semibold tw-my-4 tw-text-white">Выберите своего будущего друга</h2>
   
-    <div class=" tw-grid tw-grid-cols-1 tw-sm:grid-cols-2 tw-md:grid-cols-3 tw-lg:grid-cols-4 tw-gap-4">
-      <div *ngFor="let animal of animals" class="tw-bg-teal-500 tw-p-4 tw-rounded-md tw-shadow-md">
-        <img [src]="animal.image" alt="{{ animal.name }}" class="tw-max-w-7xl tw-object-cover tw-mb-2 tw-rounded-md">
-        <h3 class="tw-text-lg tw-font-semibold">{{ animal.name }}</h3>
-        <p>{{ animal.type }}</p>
-        <p>{{ animal.description }}</p>
-        <button class="tw-mt-2 tw-bg-teal-200 hover:tw-bg-teal-100 tw-text-teal-900 tw-font-bold tw-py-2 tw-px-4 tw-rounded">
-          Выбрать
-        </button>
-      </div>
+    <div class="tw-flex tw-flex-wrap tw-justify-center tw-max-w-full">
+        <div *ngFor="let animal of animals" class="tw-bg-teal-500 tw-p-4 tw-m-4 tw-rounded-md tw-shadow-md tw-min-w-fit tw-max-w-3xl tw-mb-4 sm:w-1/2 md:w-1/3 lg:w-1/4">
+            <img [src]="animal.image" alt="{{ animal.name }}" class="tw-object-cover tw-mb-2 tw-rounded-md">
+            <h3 class="tw-text-lg tw-font-semibold">{{ animal.name }}</h3>
+            <p>{{ animal.type }}</p>
+            <p>{{ animal.description }}</p>
+            <button (click)="openConfirmationModal(animal)" class="tw-mt-2 tw-bg-teal-200 hover:tw-bg-teal-100 tw-text-teal-900 tw-font-bold tw-py-2 tw-px-4 tw-rounded">
+                Выбрать
+            </button>
+        </div>
     </div>
-  </div>
-  
+
+    <!-- Модальное окно -->
+    <div class="tw-fixed tw-inset-0 tw-flex tw-items-center tw-justify-center" *ngIf="showConfirmationModal">
+        <div class="tw-fixed tw-inset-0 tw-bg-black tw-opacity-50"></div>
+        <div class="tw-relative tw-z-10 tw-bg-amber-200 tw-rounded-md tw-shadow-md tw-p-6 tw-max-w-md">
+            <p class="tw-text-lg tw-font-semibold tw-mb-4 tw-text-teal-950">Уверены ли вы, что хотите забрать животное?</p>
+            <div class="tw-flex tw-justify-end">
+                <button (click)="confirmAdoption()" class="tw-bg-teal-400 hover:tw-bg-teal-300 tw-text-teal-900 tw-font-bold tw-py-2 tw-px-4 tw-rounded tw-mr-2">
+                    Подтвердить
+                </button>
+                <button (click)="cancelAdoption()" class="tw-bg-red-400 hover:tw-bg-red-500 tw-text-gray-800 tw-font-bold tw-py-2 tw-px-4 tw-rounded">
+                    Отклонить
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

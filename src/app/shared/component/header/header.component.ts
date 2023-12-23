@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
 
     constructor(private authService:AuthService)
     {
-        this.user = this.authService.CurrentUser;
+        this.user = this.authService.currentUser;
         
         this.subscription = this.authService.getUserChangedEmitter()
         .subscribe(user => {
@@ -28,6 +28,6 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.user = this.authService.CurrentUser;
+        this.user = this.authService.currentUser;
     }
 }   

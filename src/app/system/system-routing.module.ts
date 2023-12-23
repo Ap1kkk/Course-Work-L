@@ -15,8 +15,6 @@ const routes: Routes = [
         {path: 'donate',component: DonateComponent},
         {path: 'news', component: NewsComponent},
         {path: 'user-profile', component: UserProfileComponent},
-        // {path: 'about',component: MainPageComponent},
-        // {path: 'contacts',component: MainPageComponent},
     ]}
 ]
 

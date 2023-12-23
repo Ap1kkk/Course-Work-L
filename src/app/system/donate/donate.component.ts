@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DonateService } from 'src/app/shared/services/donate.service';
 
 @Component({
   selector: 'app-donate',
@@ -10,22 +11,18 @@ export class DonateComponent {
 
     donationForm!: FormGroup
 
-    constructor() { 
+    constructor(private donateService:DonateService) { 
         this.donationForm = new FormGroup({
             'amount': new FormControl(null, [Validators.required]),
-            'message': new FormControl(null),
           });
     }
 
     submitDonation() {
-        // Здесь можно добавить логику для обработки платежа
         const amount = this.donationForm.value.amount;
-        const message = this.donationForm.value.message;
-    
-        // Симулируем успешное завершение оплаты
+
+        this.donateService.donate(amount);
         alert(`Пожертвование в размере ${amount} успешно совершено! Спасибо за ваш вклад.`);
-        
-        // Очистим форму после успешного пожертвования
+
         this.donationForm.reset();
       }
 }

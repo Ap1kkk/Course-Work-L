@@ -2,6 +2,7 @@ import { Observable } from "rxjs";
 import { User } from "../models/user.model";
 import { UsersService } from "./users.service";
 import { EventEmitter, Injectable, Output } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable()
 export class AuthService {
@@ -20,32 +21,40 @@ export class AuthService {
     {
         this.usersService.getUserChangedEmitter()
         .subscribe(user => {
-            window.localStorage.clear();
-            window.localStorage.setItem('user', JSON.stringify(user));
-            this.emitUserChangedEvent(user)
+            this.rewriteUser(user);
         })
     }
 
-    public get CurrentUser(): User {
+    private rewriteUser(user:User) {
+        window.localStorage.clear();
+        window.localStorage.setItem('user', JSON.stringify(user));
+        this.emitUserChangedEvent(user)
+    }
+
+    public get currentUser(): User {
         return JSON.parse(window.localStorage.getItem("user")!);
     }
     
-    private _isAuthenticated = false;
+    updateCurrentUser() {
+        let request = this.usersService.getUser(this.currentUser.email);
+        request.subscribe((user:User)=>{
+            this.rewriteUser(user);
+        });
+        return request;
+    }
 
     login(user:User) {
-      this._isAuthenticated = true;
       window.localStorage.setItem('user', JSON.stringify(user));
-      this.userChanged.emit(this.CurrentUser);
-      console.log(this.CurrentUser);
+      this.userChanged.emit(this.currentUser);
+      console.log(this.currentUser);
     }
   
     logout() {
-        this._isAuthenticated = false;
         window.localStorage.clear();
     }
   
     isAuthenticated(): boolean {
-      if(this.CurrentUser)
+      if(this.currentUser)
       {
         return true;
       }
@@ -54,8 +63,8 @@ export class AuthService {
     
     isUserAdmin(): boolean
     {
-        if(this._isAuthenticated)
-            return this.CurrentUser.isAdmin;
+        if(this.isAuthenticated())
+            return this.currentUser.isAdmin;
         return false;
     }
   }
